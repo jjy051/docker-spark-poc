@@ -1,0 +1,4 @@
+data
+docker_volume
+.ipynb_checkpoints
+__pycache__
