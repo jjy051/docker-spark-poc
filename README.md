@@ -1,10 +1,10 @@
-# spark POC
+# Spark POC
 ### spark 3.2 pandas API feature
 - pandas_on_spark.ipynb 파일 참조
 
 
 # Docker File
-### 1) single pyspark with jupyter notebook through dockerizing
+### 1) single node pyspark with jupyter notebook through dockerizing (single-node-spark)
 - make Dockerfile
     - refers to below documents
     - https://github.com/jupyter/docker-stacks
@@ -13,10 +13,11 @@
 - docker run --rm -itd -p 9999:8888 -p 4040:4040 -v $(pwd)/single-node-spark/docker_volume:/usr/local/scripts --name spark single-spark
 - docker inspect spark -> check configs (network, port, volume mounts...)
 
-### 2) multiple pyspark with jupyter lab through docker
+### 2) multiple node pyspark with jupyter lab through dockerizing (spark-cluster)
 - make Dockerfile
     - mainly refers to below blog
     - https://todaycodeplus.tistory.com/31
+    - https://www.kdnuggets.com/2020/07/apache-spark-cluster-docker.html
 - run shell script in spark-cluster folder
     - to make docker images of each components of spark-cluster
 - docker-compose up -d
@@ -27,3 +28,4 @@
 - sparkmaster:4040 왜 안 열리는지 확인 필요
 
 ### 3) through k8s
+- 

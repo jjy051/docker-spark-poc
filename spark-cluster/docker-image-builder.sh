@@ -1,12 +1,16 @@
 #!/bin/bash
 
+SPARK_VERSION="3.2.1"
+HADOOP_VERSION="3.2"
+JUPYTERLAB_VERSION="2.1.5"
+
 docker build \
   -f cluster-base-Dockerfile \
   -t cluster-base .
 
 docker build \
-  --build-arg spark_version="3.2.1" \
-  --build-arg hadoop_version="3.2" \
+  --build-arg spark_version="${SPARK_VERSION}" \
+  --build-arg hadoop_version="${HADOOP_VERSION}" \
   -f spark-base-Dockerfile \
   -t spark-base .
 
@@ -19,7 +23,7 @@ docker build \
   -t spark-worker .
 
 docker build \
-  --build-arg spark_version="3.2.1" \
-  --build-arg jupyterlab_version="2.1.5" \
+  --build-arg spark_version="${SPARK_VERSION}" \
+  --build-arg jupyterlab_version="${JUPYTERLAB_VERSION}" \
   -f jupyter-lab-Dockerfile \
   -t jupyter-lab .
